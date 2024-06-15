@@ -68,7 +68,6 @@ class GameLinksSpider extends BasicSpider
         });
 
         try {
-            dump('game count:' . $gameLinks->count() . ' | Oldal szám:' . $this->pageNum);
             $nextPageUrl = $this->nextLink();
 
             if ($gameLinks->count() != 0) {

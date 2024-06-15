@@ -13,17 +13,14 @@ class SpiderController extends Controller
     public function index()
     {
 
-        // Roach::startSpider(GameLinksSpider::class);
-
         $results = Roach::collectSpider(GameLinksSpider::class);
-        // dump($results[0]->all());
 
         $games = collect();
 
         foreach ($results as $result) {
             $games->push(...$result->all());
-            // dump($result->all());
         }
-        dump($games);
+
+        return view('gameList', ['games' => $games]);
     }
 }
